@@ -1,19 +1,25 @@
+//Program to check for DFA acceptability
+//In this program you can only enter string containig 0 or 1
+//Options 24 and 25 would be able to accept numbers from 0 to 9
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
 #include<math.h>
 
-
+//Funtion which can process a given string
 int process_string(void)
 {
  int option_for_process,string_count,numb_of_char=0;
  int input_check=0,get_out;
  int loop_variable;
  int str_arr[50];
+ //Some basic information
  printf("\nYou can enter string of max 50 characters\n");
  printf("After entering every character press enter to input that string character");
  printf("\nFor 24-25 you can only enter positive numbers.\n");
  printf("After entering each digit press enter to input it\n");
+ //Label if wrong character is eneterd
  start1:
  fflush(stdin);
  printf("\nEnter your option which you have selected from menu\n");
@@ -22,6 +28,7 @@ int process_string(void)
  {
   printf("Enter your string\n");
   printf("When your string is entered please input -1 as to terminate it\n");
+  //Through this loop we can ensure that right caracter is entered
   while(input_check != -1)
   {
    fflush(stdin);
@@ -31,6 +38,7 @@ int process_string(void)
    {
     if(str_arr[numb_of_char]==1 || str_arr[numb_of_char]==0 || str_arr[numb_of_char]==-1)
      numb_of_char++;
+    //If wrong character is entered pointer wil not be incremented
     else
     {
      printf("You have entered wrong letter,Please enter again\n");
@@ -46,7 +54,6 @@ int process_string(void)
     else
      printf("You have entered wrong letter,Please enter again\n");
     }
-
   }
  }
  else
@@ -54,7 +61,7 @@ int process_string(void)
   printf("\nYou have entered wrong option,Please select again\n");
   goto start1;
  }
-  string_count= numb_of_char -1;
+ string_count= numb_of_char -1;
  printf("\nString length = %d\n",string_count);
  printf("\nString:");
  for(loop_variable=0;loop_variable<=string_count-1;loop_variable++)
@@ -62,8 +69,10 @@ int process_string(void)
   printf("%d",str_arr[loop_variable]);
  }
  printf("\nOption you choose = %d",option_for_process);
+ //Here the string will be checked
  switch(option_for_process)
  {
+ //Strings starting with 0
   case 1:
   {
    if(str_arr[0]==0)
@@ -72,6 +81,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings of exactly length 2
   case 2:
   {
    if(string_count==2)
@@ -80,6 +90,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having even length
   case 3:
   {
    if(string_count%2==0)
@@ -88,6 +99,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having 11 as substring
   case 4:
   {
    int ele_check;
@@ -102,6 +114,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having exactly 3 0's
   case 5:
   {
    int ele_check, zero_counter=0;
@@ -116,6 +129,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having atmost 3 0's
   case 6:
   {
    int ele_check, zero_counter=0;
@@ -130,6 +144,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having atleast 3 0's
   case 7:
   {
    int ele_check, zero_counter=0;
@@ -144,6 +159,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having even number of 0's
   case 8:
   {
    int ele_check, zero_counter=0;
@@ -158,6 +174,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having odd number of 0's
   case 9:
   {
    int ele_check, zero_counter=0;
@@ -172,6 +189,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings starting with 10
   case 10:
   {
    if(str_arr[0]==1)
@@ -185,6 +203,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings ending with 10
   case 11:
   {
    if(str_arr[string_count-1]==0)
@@ -198,6 +217,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having substring 10
   case 12:
   {
    int ele_check;
@@ -212,6 +232,7 @@ int process_string(void)
    return 0;
   }
 
+  //Strings having number of 0's in multiple of 3
   case 13:
   {
    int ele_check,zero_counter=0;
@@ -226,6 +247,7 @@ int process_string(void)
     return 0;
   }
 
+  //String either ending or beginning with 01
   case 14:
   {
    if(((str_arr[string_count-2]==0) && (str_arr[string_count-1]==1)) || ((str_arr[0]==0) && (str_arr[1]==1)))
@@ -234,6 +256,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings neither beginning nor ending with 01
   case 15:
   {
    if(((str_arr[string_count-2]==0) && (str_arr[string_count-1]==1)) || ((str_arr[0]==0) && (str_arr[1]==1)))
@@ -242,6 +265,7 @@ int process_string(void)
     return 1;
   }
 
+  //Strings having even number of 0's and even number of 1's
   case 16:
   {
    int ele_check, zero_counter=0, one_counter=0;
@@ -258,6 +282,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having odd numbers of 0's and odd number of 1's
   case 17:
   {
    int ele_check, zero_counter=0, one_counter=0;
@@ -274,6 +299,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings having even number of 0's and odd number of 1's
   case 18:
   {
    int ele_check, zero_counter=0, one_counter=0;
@@ -290,6 +316,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings that accept all binary numbers divisible by 3
   case 19:
   {
    int rev_string_count=string_count-1;
@@ -307,6 +334,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings that accept all binary numbers divisible by 4
   case 20:
   {
    int rev_string_count=string_count-1;
@@ -324,6 +352,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings containing 3 consecutive 0's
   case 21:
   {
    int ele_check;
@@ -341,6 +370,7 @@ int process_string(void)
    return 0;
   }
 
+  //Strings having third symbol from right end is 1
   case 22:
   {
    if(str_arr[string_count-3]==1)
@@ -349,6 +379,8 @@ int process_string(void)
     return 0;
   }
 
+  /* Strings that accepts every block of 5 consecutive symbols having atleast
+     two 0's */
   case 23:
   {
    int ele_check;
@@ -419,6 +451,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings that accepts all decimal numbers divisible by 3
   case 24:
   {
    int rev_string_count=string_count-1;
@@ -436,6 +469,7 @@ int process_string(void)
     return 0;
   }
 
+  //Strings that accepts all decimal numbers divisible by 4
   case 25:
 
   {
@@ -457,10 +491,11 @@ int process_string(void)
 }
 }
 
+/* Below menu1(), menu2(), menu3(), menu4() are fuctions for printing menu
+   for user in such a way that he/she is able to understand it clearly  */
 
-
-
-void menu1(void)  //options 1-10
+//Options 1-10
+void menu1(void)
 {
  printf("\nDFA's that accepts all strings which contains (0,1) as alphabets:-");
  printf("\n1.Starts with 0");
@@ -475,7 +510,8 @@ void menu1(void)  //options 1-10
  printf("\n10.Starting with 10");
 }
 
-void menu2(void) //options 11-20
+//Options 11-20
+void menu2(void)
 {
  printf("\n11.Ending with 10");
  printf("\n12.Having 10 as substring");
@@ -489,19 +525,23 @@ void menu2(void) //options 11-20
  printf("\n20.All binary numbers divisible by 4");
 }
 
-void menu3(void) //options 21-23
+//Options 21-23
+void menu3(void)
 {
  printf("\n21.Containig 3 consecutive 0's");
  printf("\n22.Having 3rd symbol from right hand 1");
  printf("\n23.Block of 5 consecutive symbols having atleast two 0's");
 }
 
-void menu4(void) //option 24-25
+//Optons 24 and 25
+void menu4(void)
 {
  printf("\n24.DFA that accepts all decimal numbers divisible by 3");
  printf("\n25.DFA that accepts all decimal numbers divisible by 4");
 }
 
+/*In main fuction I would generally be calling all fuctions in an organised
+  manner so that the output would be easily understood */
 void main()
 {
  clrscr();
@@ -516,8 +556,10 @@ void main()
   printf("\nEnter your option\n");
   fflush(stdin);
   scanf("%c",&option);
+  //Main menu
   switch(option)
   {
+   //For printing menu
    case 'a':
 	     printf("\nI wanted to offer you wide range of DFA's. ");
 	     printf("\nSo I divided the list into 4 parts.");
@@ -553,16 +595,23 @@ void main()
 	      goto start;
 	     else
 	      break;
+
+   //For string processing
    case 'b': returned_value=process_string();
 	     if(returned_value==1)
 	      printf("\nANSWER-STRING IS ACCEPTED");
 	     else
 	      printf("\nANSWER-STRING IS REJECTED");
 	     break;
+
+   //For clearing screen
    case 'c': clrscr();
 	     break;
+
+   //For exiting
    case 'd': exit(0);
 	     break;
+
    default:printf("\nYou have entered wrong choice\n");
   }
   printf("\nDo you want to continue?\nInput 1 to continue\nTo leave press any other key\n");
