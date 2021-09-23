@@ -53,4 +53,15 @@ A program in which you get a list of some DFA. You can choose any option, enter 
   
 
 
+
+## Screenshots
+
+![Start](https://raw.githubusercontent.com/Krauser24816/Deterministic-Finite-Automata/master/screenshots/Start.PNG)
+
+![Menu](https://raw.githubusercontent.com/Krauser24816/Deterministic-Finite-Automata/master/screenshots/1.PNG)
+
+![Menu1](https://raw.githubusercontent.com/Krauser24816/Deterministic-Finite-Automata/master/screenshots/2.PNG)
+
+![Output](https://raw.githubusercontent.com/Krauser24816/Deterministic-Finite-Automata/master/screenshots/3.PNG)
+
   
