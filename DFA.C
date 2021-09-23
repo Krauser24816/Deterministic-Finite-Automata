@@ -13,7 +13,7 @@ int process_string(void)
  int option_for_process,string_count,numb_of_char=0;
  int input_check=0,get_out;
  int loop_variable;
- int str_arr[50];
+ int str_arr[51]; //String of 50 characters is acceptable and -1 for ending that string
  //Some basic information
  printf("\nYou can enter string of max 50 characters\n");
  printf("After entering every character press enter to input that string character");
